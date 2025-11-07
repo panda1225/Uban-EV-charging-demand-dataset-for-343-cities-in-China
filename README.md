@@ -1,2 +1,12 @@
 # Uban-EV-charging-demand-dataset-for-343-cities-in-China
 A comprehensive dataset includes typical daily charging demand of weekday and weekend, covering 343 cities in China
+The charging demand is generated using a bottom-up method, where the station-level charging behavior is represented by two distributions (including arrival and charging duration) and the stations are labeled with AOI information. We transfer the charging behavior from the data-rich city to data-scarce ones. In contrast to existing studies that predict demand from EV demand side or directly predict city-level demand, the proposed bottom-up method uses station-level information and then aggregates to the city-level demand, thus has better interpretability.
+
+## Data description
+### typical_city_charging_demand
+It consists charging demand for 343 cities in China. The administrative division is based on GADM 2018 data (https://gadm.org/data.html#google_vignette), thus the prefecture city division may exist subtle difference with the latest one. Nevertheless, it does not affect the normal usage, since the previous administrative division has covered all China as well. 
+
+Each charging demand file contains three columns: _time_, _weekday_power_, and _weekend_power_. The unit of the file is kW. We only provide the charging demand in January, which can be easily scaled to any month using  **EV energy consumption and city stock**
+
+### EV energy consumption and city stock
+It is a .xlsx file with two sheet: **City EV stock** and **2024 EV energy consumption**. **City EV stock** sheet contains EV stock for prefecture cities in 2022, including 5 columns: _year_, _province_, _city_, _stock_, and _proportion_. The data of City EV stock stems from multiple sources, since there is no a official dataset. The sources include local news, reports, official document, etc. Therefore, this data is available for roughly dividing the charging demand, while it is not suitable for more accurate research needs. **2024 EV energy consumption** comes from report "Operation of electric vehicle charging and swapping infrastructure in 2024" (https://www.evcipa.org.cn/), published by China Electric Vehicle Charging Infrastructure Promotion Alliance. The EV energy consumption here only denotes the consumption in the public charging stations, excluding the private part. The data includes monthly energy consumption, wherein the unit is 1e8 kWh.
